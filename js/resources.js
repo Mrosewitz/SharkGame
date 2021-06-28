@@ -559,7 +559,16 @@ SharkGame.Resources = {
     constructResourceTableRow(resourceKey) {
         const playerResources = SharkGame.PlayerResources.get(resourceKey);
         const income = res.getIncome(resourceKey);
-        const row = $("<tr>").attr("id", resourceKey).on("mouseenter", res.tableTextEnter).on("mouseleave", res.tableTextLeave);
+        const row = $("<tr>")
+            .attr("id", resourceKey)
+            .on("mouseenter", res.tableTextEnter)
+            .on(
+                (() => {
+                    console.debug("subscribing to mouseleave");
+                    return "mouseleave";
+                })(),
+                res.tableTextLeave
+            );
         if (playerResources.totalAmount > 0 || SharkGame.PlayerResources.get(resourceKey).discovered) {
             row.append(
                 $("<td>")
@@ -586,6 +595,7 @@ SharkGame.Resources = {
     },
 
     tableTextEnter(_mouseEnterEvent, resourceName) {
+        console.debug("tableTextEnter");
         if (!SharkGame.Settings.current.showTooltips) {
             return;
         }
@@ -640,8 +650,10 @@ SharkGame.Resources = {
     },
 
     tableTextLeave() {
+        console.debug("tableTextLeave");
+
         document.getElementById("tooltipbox").innerHTML = "";
-        $(".tooltip").removeClass("forIncomeTable").attr("current", "");
+        $(".tooltip").removeClass("forIncomeTable").removeAttr("current");
     },
 
     applyResourceColoration(resourceName, textToColor) {
@@ -665,6 +677,10 @@ SharkGame.Resources = {
         }
         const resource = SharkGame.ResourceMap.get(resourceName);
         const amount = arbitraryAmount ? arbitraryAmount : Math.floor(SharkGame.PlayerResources.get(resourceName).amount);
+        if (!_.has(resource, "name")) {
+            console.warn(`Resource ${resourceName} doesn't have a name.`);
+        }
+
         let name = amount - 1 < SharkGame.EPSILON ? resource.singleName : resource.name;
         let extraStyle = "";
 

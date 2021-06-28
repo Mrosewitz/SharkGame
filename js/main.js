@@ -670,10 +670,9 @@ Mod of v ${SharkGame.ORIGINAL_VERSION}`
         }
 
         //see if resource table tooltip needs updating
-        if (document.getElementById("tooltipbox").className.split(" ").includes("forIncomeTable")) {
-            if (document.getElementById("tooltipbox").attributes.current) {
-                res.tableTextEnter(null, document.getElementById("tooltipbox").attributes.current.value);
-            }
+        const tooltipBox = document.getElementById("tooltipbox");
+        if (tooltipBox.classList.contains("forIncomeTable") && tooltipBox.getAttribute("current")) {
+            res.tableTextEnter(null, document.getElementById("tooltipbox").getAttribute("current"));
         }
     },
 
