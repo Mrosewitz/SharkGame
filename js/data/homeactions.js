@@ -883,6 +883,58 @@ SharkGame.HomeActions = {
             helpText: "Convince a chimaera to hunt in the darker depths for us.",
         },
 
+        //testing
+        getClown: {
+            name: "Sort Fish",
+            effect: {
+                resource:{
+                    clown: 1,
+                },
+            },
+            cost: [{resource: "fish", costFunction: "linear", priceIncrease: 20}],
+            prereq: {
+                resource:{
+                    fish: 20,
+                },
+            },
+            outcomes: [
+                "Found a pretty fish",
+                "Found a funny guy",
+                "Honk"
+            ],
+            multiOutcomes:[
+                "Many pretty",
+                "Many honk",
+            ], 
+        },
+        // CLOWN JOB, placed here to be easier to find////////////////////////////////////////////////
+        getCircus:{
+            name: "Build clown fish tent",
+            effect: {
+                resource:{
+                    circus: 1
+                },
+            },
+            cost: [
+                {resource: "clown", costFunction: "constant", priceIncrease: 2},
+                {resource: "kelp", costFunction: "linear", priceIncrease: 500 },
+                {resource: "sharkonium", costFunction: "linear", priceIncrease: 25},
+            ],
+            prereq:{
+                resource:{
+                    clown: 100,
+                    sharkonium: 500,
+                    kelp: 1000,
+                },
+            },
+            outcomes: [
+                "I'm out of ideas",
+            ],
+            multiOutcomes:[
+                "Please just work",
+            ], 
+        },
+
         // SHARK JOBS ////////////////////////////////////////////////////////////////////////////////
 
         getDiver: {
@@ -3235,6 +3287,7 @@ SharkGame.HomeActionCategories = {
             "getOctopus",
             "getSquid",
             "getUrchin",
+            "getClown",
         ],
     },
 
@@ -3278,6 +3331,7 @@ SharkGame.HomeActionCategories = {
             "getPit",
             "getCollective",
             "getSpawner",
+            "getCircus",
         ],
     },
 

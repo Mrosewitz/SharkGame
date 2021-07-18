@@ -174,6 +174,15 @@ SharkGame.ResourceTable = {
         value: 3000,
     },
 
+    //testing
+    clown:{
+        name: "clown fish",
+        singleName: "clown fish",
+        desc: "Usually food, but cute enough to keep around",
+        color:"#FA9272",
+        value: 3000,
+    },
+
     // BREEDERS
 
     nurse: {
@@ -269,6 +278,17 @@ SharkGame.ResourceTable = {
         color: "#FF4E28",
         income: {
             squid: 0.05,
+        },
+        value: 4000,
+    },
+    // testing
+    circus: {
+        name: "Clown Fish Circuses",
+        singleName: "Clown Fish Circus",
+        desc: "Clownfish go in, more come out. Don't ask how.",
+        color: "#FA9272",
+        income: {
+            clown: 0.1,
         },
         value: 4000,
     },
@@ -1139,7 +1159,7 @@ SharkGame.ResourceCategories = {
             "Was it something they said?",
             "Are you happy with what you've done?",
         ],
-        resources: ["shark", "ray", "crab", "shrimp", "lobster", "dolphin", "whale", "chimaera", "octopus", "eel", "squid", "urchin"],
+        resources: ["shark", "ray", "crab", "shrimp", "lobster", "dolphin", "whale", "chimaera", "octopus", "eel", "squid", "urchin", "clown",],
     },
     animals: {
         name: "Animals",
@@ -1196,7 +1216,7 @@ SharkGame.ResourceCategories = {
             "You sure you want to disrupt this accelerated growth curve?",
             "Back to a simpler life, maybe.",
         ],
-        resources: ["nurse", "maker", "brood", "queen", "berrier", "biologist", "pit", "collective", "spawner"],
+        resources: ["nurse", "maker", "brood", "queen", "berrier", "biologist", "pit", "collective", "spawner", "circus"],
     },
     specialists: {
         name: "Specialists",
