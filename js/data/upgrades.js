@@ -370,6 +370,42 @@ SharkGame.Upgrades = {
                 },
             },
         },
+        //clown testing
+        clownbiology:{
+            name: "Clownfish Biology",
+            desc: "The scientists seem uncomfortable with this one, but science must be done.",
+            researchedMessage: "The scientists did not like that project for some reason.",
+            effectDesc: "Unlocks a way for clownfish to self replicate. Clownfish have an odd ritual.",
+            cost: {
+                science: 750,
+                kelp: 100,
+                crystal: 50,
+            },
+            required: {
+                upgrades: ["biology"],
+                resources: ["kelp", "crystal"],
+                seen: ["kelp", "crystal"],
+            }
+        },
+        clownBleachers:{
+            name: "Circus Bleachers",
+            desc: "The clownfish tell us that bleachers will help their circuses",
+            researchedMessage: "The scientists didn't mind this one, but they had the crabs put the bleachers in the tents.",
+            effectDesc: "Doubles the rate of clownfish reproduction",
+            cost: {
+                science: 1000,
+                sharkonium: 1500
+            },
+            required:{
+                upgrades: ["clownbiology"],
+            },
+            effect:{
+                incomeMultiplier:{
+                    circus: 2,
+                },
+            },
+        },
+        
         xenobiology: {
             name: "Xenobiology",
             desc: "Determine what is with these weird faceless creatures we keep finding.",

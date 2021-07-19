@@ -891,6 +891,7 @@ SharkGame.HomeActions = {
                     clown: 1,
                 },
             },
+            max: "clown",
             cost: [{resource: "fish", costFunction: "linear", priceIncrease: 20}],
             prereq: {
                 resource:{
@@ -906,6 +907,7 @@ SharkGame.HomeActions = {
                 "Many pretty",
                 "Many honk",
             ], 
+            helpText: "Sort fish for the pretty ones.",
         },
         // CLOWN JOB, placed here to be easier to find////////////////////////////////////////////////
         getCircus:{
@@ -918,14 +920,16 @@ SharkGame.HomeActions = {
             cost: [
                 {resource: "clown", costFunction: "constant", priceIncrease: 2},
                 {resource: "kelp", costFunction: "linear", priceIncrease: 500 },
-                {resource: "sharkonium", costFunction: "linear", priceIncrease: 25},
+                {resource: "crystal", costFunction: "linear", priceIncrease: 25},
             ],
+            max: "circus",
             prereq:{
                 resource:{
                     clown: 100,
                     sharkonium: 500,
                     kelp: 1000,
                 },
+                upgrade: ["clownbiology"],
             },
             outcomes: [
                 "I'm out of ideas",
@@ -933,6 +937,7 @@ SharkGame.HomeActions = {
             multiOutcomes:[
                 "Please just work",
             ], 
+            helpText: "This should work",
         },
 
         // SHARK JOBS ////////////////////////////////////////////////////////////////////////////////

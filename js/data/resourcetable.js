@@ -174,14 +174,6 @@ SharkGame.ResourceTable = {
         value: 3000,
     },
 
-    //testing
-    clown:{
-        name: "clown fish",
-        singleName: "clown fish",
-        desc: "Usually food, but cute enough to keep around",
-        color:"#FA9272",
-        value: 3000,
-    },
 
     // BREEDERS
 
@@ -278,17 +270,6 @@ SharkGame.ResourceTable = {
         color: "#FF4E28",
         income: {
             squid: 0.05,
-        },
-        value: 4000,
-    },
-    // testing
-    circus: {
-        name: "Clown Fish Circuses",
-        singleName: "Clown Fish Circus",
-        desc: "Clownfish go in, more come out. Don't ask how.",
-        color: "#FA9272",
-        income: {
-            clown: 0.1,
         },
         value: 4000,
     },
@@ -1042,7 +1023,41 @@ SharkGame.ResourceTable = {
         value: 123456789,
         forceIncome: true,
     },
+
+        // Clown testing
+    clown:{
+        name: "Clownfish",
+        singleName: "Clownfish",
+        desc: "Usually food, but pretty enough to keep around",
+        color:"#FA9272",
+        value: 3000,
+    },
+
+    circus: {
+        name: "Clownfish Circuses",
+        singleName: "Clownfish Circus",
+        desc: "Clownfish go in, more come out. Don't ask how.",
+        color: "#FA9272",
+        income: {
+        clown: 0.1,
+        },
+        value: 4000,
+    },
+    
+    clownEntertainer:{
+        name: "Clownfish Entertainers",
+        singleName: "Clownfish Entertainer",
+        desc: "Fun and happiness, but the scientists are on edge.",
+        color: "#FA9272",
+        income: {
+            //happiness : 1
+            //terror : .1
+        },
+        value: 5000
+    },
 };
+
+
 
 SharkGame.GeneratorIncomeAffectorsOriginal = {
     // table of all the ways that various resources affect the production of others
@@ -1250,6 +1265,7 @@ SharkGame.ResourceCategories = {
             //"shoveler",
             //"miller",
             //"rockLobster",
+            "clownEntertainer",
         ],
     },
     machines: {
@@ -1347,6 +1363,10 @@ SharkGame.InternalCategories = {
     chimaeras: {
         name: "Chimaeras",
         resources: ["chimaera", "explorer", "transmuter"],
+    },
+    clowns: {
+        name: "Clowns",
+        resources: ["clown", "circus", "clownEntertainer"],
     },
     sharkmachines: {
         name: "Shark Machines",
